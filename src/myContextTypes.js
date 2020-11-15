@@ -1,18 +1,22 @@
-const myContextTypes = function(type){
-
-	if(type === 1) {
-		return individual;
+const myContext = (function(){
+	return {
+		getContext: function(type){
+			if(type === 1) {
+				console.log(individual)
+				return individual;
+			}
+		
+			if(type === 2){
+				console.log(machine)
+				return machine;
+			}
+			
+			if(type !== 1 | type !== 2){
+				return console.error("myContext only accepts 'type' of 1 for individuals or 2 for machine.");
+			}
+		}
 	}
-
-	if(type === 2){
-		return machine;
-	}
-
-	if(type !== 1 | type !== 2){
-		return console.error("myContext only accepts type of 1 for individuals or 2 for machine.");
-	}
-
-};
+})();
 
 const individual = {
 	key: Math.floor(49 * Math.random()),
