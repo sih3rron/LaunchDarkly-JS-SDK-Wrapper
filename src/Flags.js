@@ -10,7 +10,7 @@ const Flags = (function(){
 			allAttributesPrivate: false,
 		},
 	}
-	const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(8), myFlag.options);
+	const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(1), myFlag.options);
 	return {
 			on: function(eventName, callbackFunc){
 				try {
