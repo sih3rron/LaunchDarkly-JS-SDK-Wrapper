@@ -23,6 +23,7 @@ const Flags = (function(){
 
 			treatment: function(flagName, baseline){
 				try {
+				//Add an Analytics Event to Mirror your variation call and metadata.
 					return clientFlags.variationDetail(flagName, baseline);
 				}
 				catch(err){
@@ -32,12 +33,13 @@ const Flags = (function(){
 
 			metric: function(eventName, data, numeric){
 				try {
+				//Add an Analytics Event to Mirror your tracking call and metadata.
 					return clientFlags.track(eventName, data, numeric);
 				}
 				catch(err){
 					console.error(err);
 				}
-			},	
+			}	
 		};
 	}
 )();

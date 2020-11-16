@@ -1,4 +1,28 @@
 const myContext = (function(){
+
+		const individual = {
+			key: Math.floor(49 * Math.random()),
+			firstName: 'Simon',
+			lastName: 'Herron',
+			custom: {
+				groups: ['beta_testers', 'high_frequency','> 1200'],
+				accountHolder: true
+			}
+		}
+
+		const machine = {
+			key: Math.floor(49 * Math.random()),
+			tennantId: 'thisIsMyId',
+			serviceName: 'MyService',
+			route: '/some/route/path',
+			callsPerSec: 200,
+			custom: {
+				host: 'AWS US-East',
+				state: 'off'
+			},
+			serverGroup: ["US-Virginia","EU-Spain","EU-Italy"]
+		}
+
 	return {
 		getContext: function(type){
 			if(type === 1) {
@@ -18,26 +42,5 @@ const myContext = (function(){
 	}
 })();
 
-const individual = {
-	key: Math.floor(49 * Math.random()),
-	firstName: 'Simon',
-	lastName: 'Herron',
-	custom: {
-		groups: 'beta_testers',
-		accountHolder: true
-	},
-}
-
-const machine = {
-	key: Math.floor(49 * Math.random()),
-	tennantId: 'thisIsMyId',
-	serviceName: 'MyService',
-	route: '/some/route/path',
-	callsPerSec: 200,
-	custom: {
-		host: 'AWS US-East',
-		state: 'off'
-	},
-}
 
 export default myContext;
