@@ -2,6 +2,8 @@ import LDClient from "launchdarkly-js-client-sdk";
 import myContext from "./myContextTypes";
 
 const Flags = (function(){
+	let theseFlags;
+	
 	const myFlag = {
 		sdkKey: "5f7c5a3ac3cd090c293946cd",
 		options: {
@@ -10,8 +12,11 @@ const Flags = (function(){
 			allAttributesPrivate: false,
 		},
 	}
-	const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(1), myFlag.options);
-	return {
+
+	// The argument 'context' is the numeric value that relates to the type of user object you pass in.
+	function create(context){
+		const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(context), myFlag.options);
+		return {
 			on: function(eventName, callbackFunc){
 				try {
 					return clientFlags.on(eventName, callbackFunc);
@@ -20,7 +25,7 @@ const Flags = (function(){
 					console.error(err);
 				}
 			},
-
+			
 			treatment: function(flagName, baseline){
 				try {
 				//Add an Analytics Event to Mirror your variation call and metadata.
@@ -30,7 +35,7 @@ const Flags = (function(){
 					console.error(err);
 				}
 			},
-
+			
 			metric: function(eventName, data, numeric){
 				try {
 				//Add an Analytics Event to Mirror your tracking call and metadata.
@@ -40,7 +45,18 @@ const Flags = (function(){
 					console.error(err);
 				}
 			}	
-		};
+
+		}
+	};
+
+	return {
+		getInstance: function(context){
+				if(!theseFlags){
+					theseFlags = create(context);
+				}
+				return theseFlags;
+			}
+		}
 	}
 )();
 
