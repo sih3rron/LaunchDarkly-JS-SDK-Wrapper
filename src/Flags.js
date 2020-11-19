@@ -3,7 +3,7 @@ import myContext from "./myContextTypes";
 
 const Flags = (function(){
 	let theseFlags;
-	
+
 	const myFlag = {
 		sdkKey: "5f7c5a3ac3cd090c293946cd",
 		options: {
@@ -17,31 +17,32 @@ const Flags = (function(){
 	function create(context){
 		const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(context), myFlag.options);
 		return {
-			on: function(eventName, callbackFunc){
+					
+			on: (eventName, callbackFunc) => {
 				try {
 					return clientFlags.on(eventName, callbackFunc);
 				}
-				catch(err){
+				catch (err) {
 					console.error(err);
 				}
 			},
 			
-			treatment: function(flagName, baseline){
+			treatment: (flagName, baseline) => {
 				try {
-				//Add an Analytics Event to Mirror your variation call and metadata.
+					//Add an Analytics Event to Mirror your variation call and metadata.
 					return clientFlags.variationDetail(flagName, baseline);
 				}
-				catch(err){
+				catch (err) {
 					console.error(err);
 				}
 			},
 			
-			metric: function(eventName, data, numeric){
+			metric: (eventName, data, numeric) => {
 				try {
-				//Add an Analytics Event to Mirror your tracking call and metadata.
+					//Add an Analytics Event to Mirror your tracking call and metadata.
 					return clientFlags.track(eventName, data, numeric);
 				}
-				catch(err){
+				catch (err) {
 					console.error(err);
 				}
 			}	
