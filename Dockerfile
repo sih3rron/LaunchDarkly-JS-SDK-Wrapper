@@ -11,6 +11,6 @@ RUN npm install webpack webpack-cli webpack-dev-server -g
 # Step 6
 COPY . ./
 # Step 7
-EXPOSE 8080
+EXPOSE 9000
 # Step 8
 CMD ["npm", "run", "dev"]
