@@ -29,8 +29,33 @@ const Flags = (function(){
 			
 			treatment: (flagName, baseline) => {
 				try {
+
 					//Add an Analytics Event to Mirror your variation call and metadata.
-					return clientFlags.variationDetail(flagName, baseline);
+					const details = clientFlags.variationDetail(flagName, baseline);
+					let assignmentDetails = {
+						flagName: flagName,
+						variationIndex: details.variationIndex,
+						value: details.value,
+						ruleId: details.ruleId,
+						ruleIndex: details.ruleIndex
+					};
+
+					//Inelegant Example of a GA implementation
+					let clearInterval = setInterval(() => {
+							if (window._gaq && window._gaq._getTracker) {
+								window.ga('send', 'event',
+									assignmentDetails.flagName,
+									assignmentDetails.variationIndex,
+									assignmentDetails.value);
+								clearInterval();
+							} else {
+								setTimeout(()=>{
+									clearInterval()
+								}, 2500);
+							};
+						}, 250);
+					
+					return assignmentDetails;
 				}
 				catch (err) {
 					console.error(err);

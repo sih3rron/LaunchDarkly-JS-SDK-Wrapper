@@ -2,6 +2,7 @@ const myContext = (function(){
 
 		const individual = {
 			key: Math.floor(49 * Math.random()),
+			tennantId: 'thisIsMyId',
 			firstName: 'Simon',
 			lastName: 'Herron',
 			custom: {
@@ -12,10 +13,11 @@ const myContext = (function(){
 
 		const machine = {
 			key: Math.floor(49 * Math.random()),
-			tennantId: 'thisIsMyId',
 			serviceName: 'MyService',
 			route: '/some/route/path',
-			callsPerSec: 200,
+			authType:'session',
+			method: ["PUT","PATCH"],
+			reqPerMinute: 200,
 			custom: {
 				host: 'AWS US-East',
 				state: 'off'
