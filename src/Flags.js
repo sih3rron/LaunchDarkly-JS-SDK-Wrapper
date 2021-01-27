@@ -40,21 +40,21 @@ const Flags = (function(){
 						ruleIndex: details.ruleIndex
 					};
 
-					//Inelegant Example of a GA implementation
-					let clearInterval = setInterval(() => {
-							if (window._gaq && window._gaq._getTracker) {
-								window.ga('send', 'event',
-									assignmentDetails.flagName,
-									assignmentDetails.variationIndex,
-									assignmentDetails.value);
-								clearInterval();
-							} else {
-								setTimeout(()=>{
-									clearInterval()
-								}, 2500);
-							};
-						}, 250);
+					/*//Inelegant Example of a GA implementation
 					
+							if (window._gaq && window._gaq._getTracker) {
+
+								window.ga('send', 'event', 
+									[eventCategory], //assignmentDetails.flagName, 
+									[eventAction], //${assignmentDetails.flagName `Evaluation`}, 
+									[eventLabel], // assignmentDetails.ruleId, 
+									[eventValue], // assignmentDetails.variationIndex, 
+									{nonInteraction: true}
+								);
+							
+						} 
+					*/
+
 					return assignmentDetails;
 				}
 				catch (err) {
