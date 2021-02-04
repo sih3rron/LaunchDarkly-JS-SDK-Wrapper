@@ -2,10 +2,10 @@ const myContext = (function(){
 
 		const individual = {
 			key: Math.floor(49 * Math.random()),
-			tennantId: 'thisIsMyId',
 			firstName: 'Simon',
 			lastName: 'Herron',
 			custom: {
+				tennantId: 'thisIsMyId',
 				groups: ['beta_testers', 'high_frequency','> 1200'],
 				accountHolder: true
 			}
@@ -13,16 +13,16 @@ const myContext = (function(){
 
 		const machine = {
 			key: Math.floor(49 * Math.random()),
-			serviceName: 'MyService',
-			route: '/some/route/path',
-			authType:'session',
-			method: ["PUT","PATCH"],
-			reqPerMinute: 200,
 			custom: {
-				host: 'AWS US-East',
-				state: 'off'
-			},
-			serverGroup: ["US-Virginia","EU-Spain","EU-Italy"]
+				serviceName: 'MyService',
+				route: '/some/route/path',
+				authType:'session',
+				method: ["PUT","PATCH"],
+				reqPerMinute: 200,
+				host: 'US-East-1',
+				state: 'off',
+				serverGroup: ["US-Virginia","EU-Spain","EU-Italy"]
+			}
 		}
 
 	return {
