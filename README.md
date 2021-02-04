@@ -6,7 +6,7 @@ Basic Example of a Wrapper using the JS SDK.
 * `myContextTypes` contains two versions/types of the User context (addressed only as Context to avoid the stereotype of an individual user).
 * `Index` is the entrypoint for the blank webpage.
 
-Should be noted that this is only an example and that the web page itself is arbitrary and therefore does nothing!
+Should be noted that this is only an example and that the web page itself is arbitrary and therefore does nothing except expose `consoled` outputs.
 
 The wrapper only exposes:
 
