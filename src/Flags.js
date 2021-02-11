@@ -1,9 +1,7 @@
 import LDClient from "launchdarkly-js-client-sdk";
-import myContext from "./myContextTypes";
 
 const Flags = (function(){
 	let theseFlags;
-
 	const myFlag = {
 		sdkKey: "5f7c5a3ac3cd090c293946cd",
 		options: {
@@ -13,9 +11,8 @@ const Flags = (function(){
 		},
 	}
 
-	// The argument 'context' is the numeric value that relates to the type of user object you pass in.
 	function create(context){
-		const clientFlags = LDClient.initialize(myFlag.sdkKey, myContext.getContext(context), myFlag.options);
+		const clientFlags = LDClient.initialize(myFlag.sdkKey, context, myFlag.options);
 		return {
 					
 			on: (eventName, callbackFunc) => {
