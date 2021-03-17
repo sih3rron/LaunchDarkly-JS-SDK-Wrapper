@@ -37,7 +37,7 @@ const Flags = (function(){
 						ruleIndex: details.ruleIndex
 					};
 
-					/*//Inelegant Example of a GA implementation
+					/*//Example of a GA implementation
 					
 							if (window._gaq && window._gaq._getTracker) {
 

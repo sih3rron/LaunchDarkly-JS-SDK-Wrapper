@@ -1,13 +1,8 @@
 import { LDUser } from 'launchdarkly-js-sdk-common';
 
-type UserData = {
-    ID: string;
-}
-
 class Context {
-    userInfo!: UserData;
 
-    known = (userInfo: UserData): LDUser => {
+    known = (userInfo) => {
         return  {
             "key": userInfo.ID, 
             "custom": {
@@ -17,7 +12,7 @@ class Context {
         }
     } 
 
-    anonymous = (): LDUser => {
+     anonymous = () => {
       return  {
           "anonymous": true,
             "custom": {
