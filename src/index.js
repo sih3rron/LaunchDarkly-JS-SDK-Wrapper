@@ -8,6 +8,6 @@ let userData = {
 let user = new Context();
 
 const flag = Flags.getInstance(user.known(userData));
-flag.on("ready", () => {
+flag.ready(() => {
 	console.log(flag.treatment("Nov2020.wrapper.temp", false));
 });

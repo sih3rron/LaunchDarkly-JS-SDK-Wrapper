@@ -15,9 +15,9 @@ const Flags = (function(){
 		const clientFlags = LDClient.initialize(myFlag.sdkKey, context, myFlag.options);
 		return {
 					
-			on: (eventName, callbackFunc) => {
+			ready: (callbackFunc) => {
 				try {
-					return clientFlags.on(eventName, callbackFunc);
+					return clientFlags.on("ready", callbackFunc);
 				}
 				catch (err) {
 					console.error(err);
