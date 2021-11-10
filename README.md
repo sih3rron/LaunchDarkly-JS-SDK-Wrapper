@@ -1,6 +1,6 @@
 # LaunchDarkly-JS-SDK-Wrapper
 
-Basic Example of a Wrapper using the JS SDK.
+Super Basic Example of a Wrapper using the JS SDK.
 
 * `Flags` contains all of the LaunchDarkly Logic.
 * `myContextTypes` contains two versions/types of the User context (addressed only as Context to avoid the stereotype of an individual user).
